@@ -1,0 +1,6 @@
+{
+  "name": "Odilia Global",
+  "description": "Sovereign operations orchestration, business process outsourcing, and enterprise institutional transformation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

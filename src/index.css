@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #e9c176;
+  --color-primary-container: #c5a059;
+  --color-primary-fixed: #ffdea5;
+  --color-primary-fixed-dim: #e9c176;
+  --color-on-primary: #412d00;
+  --color-on-primary-container: #4e3700;
+  
+  --color-background: #131315;
+  --color-surface: #131315;
+  --color-surface-container-lowest: #0e0e10;
+  --color-surface-container-low: #1c1b1e;
+  --color-surface-container: #201f22;
+  --color-surface-container-high: #2a2a2c;
+  --color-surface-container-highest: #353437;
+  --color-surface-bright: #39393b;
+  
+  --color-on-background: #e5e1e4;
+  --color-on-surface: #e5e1e4;
+  --color-on-surface-variant: #d1c5b4;
+  
+  --color-secondary: #c7c6ca;
+  --color-secondary-container: #46464a;
+  --color-tertiary: #b7c4ff;
+  --color-outline: #9a8f80;
+  --color-outline-variant: #4e4639;
+
+  --font-headline: "EB Garamond", Georgia, serif;
+  --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #0e0e10;
+    color: #e5e1e4;
+    font-family: var(--font-body);
+  }
+  
+  /* Precision Zero-Radius policy from Sovereign Executive system */
+  *, ::before, ::after {
+    border-radius: 0 !important;
+  }
+}
+
+/* Custom Typography Helpers */
+.font-headline-display {
+  font-family: var(--font-headline);
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.font-headline-lg {
+  font-family: var(--font-headline);
+  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.font-headline-md {
+  font-family: var(--font-headline);
+  font-size: clamp(1.75rem, 3.2vw, 2.25rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.font-headline-sm {
+  font-family: var(--font-headline);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.35;
+}
+
+.font-label-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Hide default scrollbars for sovereign clean feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0e0e10;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2c;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a059;
+}
