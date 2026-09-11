@@ -13,13 +13,11 @@ import { BeyondBpoSection } from './components/BeyondBpoSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ExecutiveConsultationModal } from './components/ExecutiveConsultationModal';
-import { OperationsConsoleModal } from './components/OperationsConsoleModal';
 import { ClientPortalModal } from './components/ClientPortalModal';
 
 export default function App() {
   const [activeScreen, setActiveScreen] = useState<string>('overview');
   const [isConsultationOpen, setIsConsultationOpen] = useState<boolean>(false);
-  const [isConsoleOpen, setIsConsoleOpen] = useState<boolean>(false);
   const [isPortalOpen, setIsPortalOpen] = useState<boolean>(false);
   const [consultationScope, setConsultationScope] = useState<string>('Customer Support (Tier 1-3)');
   const [selectedServiceIndex, setSelectedServiceIndex] = useState<number>(0);
@@ -36,7 +34,6 @@ export default function App() {
         activeScreen={activeScreen}
         setActiveScreen={setActiveScreen}
         onOpenConsultation={() => handleOpenConsultationWithScope('Comprehensive Multi-Function BPO')}
-        onOpenConsole={() => setIsConsoleOpen(true)}
         onOpenPortal={() => setIsPortalOpen(true)}
       />
 
@@ -46,13 +43,10 @@ export default function App() {
         <HeroSection
           onOpenConsultation={() => handleOpenConsultationWithScope('Comprehensive Multi-Function BPO')}
           onSelectServiceTab={(tabIdx) => setSelectedServiceIndex(tabIdx)}
-          onOpenConsole={() => setIsConsoleOpen(true)}
         />
 
-        {/* 02. Fiduciary Business Case & ROI Simulator */}
-        <BusinessCaseSection
-          onOpenConsultation={() => handleOpenConsultationWithScope('Finance, AP/AR & General Ledger')}
-        />
+        {/* 02. Fiduciary Business Case (6 Institutional Rationale Pillars) */}
+        <BusinessCaseSection />
 
         {/* 03. About Odilia Global & Executive Reception */}
         <AboutSection />
@@ -64,7 +58,7 @@ export default function App() {
           onOpenConsultationWithService={handleOpenConsultationWithScope}
         />
 
-        {/* 05. Deep Dive: Sovereign Customer Support & Telemetry Console */}
+        {/* 05. Deep Dive: Sovereign Customer Support Standard */}
         <SupportDeepDive />
 
         {/* 06. How We Work: 3-Phase Governance Lifecycle */}
@@ -103,11 +97,6 @@ export default function App() {
         isOpen={isConsultationOpen}
         onClose={() => setIsConsultationOpen(false)}
         defaultScope={consultationScope}
-      />
-
-      <OperationsConsoleModal
-        isOpen={isConsoleOpen}
-        onClose={() => setIsConsoleOpen(false)}
       />
 
       <ClientPortalModal

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { ASSETS } from '../data/content';
-import { Globe, Shield, Terminal, User, Menu, X, ChevronDown } from 'lucide-react';
+import { Globe, Shield, User, Menu, X, ChevronDown } from 'lucide-react';
 
 interface HeaderProps {
   activeScreen: string;
   setActiveScreen: (screen: string) => void;
   onOpenConsultation: () => void;
-  onOpenConsole: () => void;
   onOpenPortal: () => void;
 }
 
@@ -14,7 +13,6 @@ export const Header: React.FC<HeaderProps> = ({
   activeScreen,
   setActiveScreen,
   onOpenConsultation,
-  onOpenConsole,
   onOpenPortal
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -110,17 +108,6 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Right Utility Actions */}
         <div className="flex items-center gap-3 sm:gap-4">
-          {/* Live Ops Console Trigger */}
-          <button
-            onClick={onOpenConsole}
-            title="Open Live Operations Telemetry Room"
-            className="hidden lg:flex items-center gap-2 px-3 py-1.5 bg-[#1c1b1e] border border-[#c5a059]/30 hover:border-[#e9c176] text-[#e5e1e4] hover:text-[#e9c176] transition-all cursor-pointer text-[12px] uppercase tracking-wider"
-          >
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <Terminal size={14} className="text-[#c5a059]" />
-            <span>Ops Console</span>
-          </button>
-
           {/* Region / Language Selector */}
           <div className="relative hidden md:block">
             <button
@@ -208,17 +195,6 @@ export const Header: React.FC<HeaderProps> = ({
             ))}
 
             <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenConsole();
-                }}
-                className="flex items-center justify-center gap-2 w-full py-2.5 bg-[#1c1b1e] border border-[#c5a059]/40 text-[#e9c176] text-xs uppercase tracking-wider font-semibold"
-              >
-                <Terminal size={15} />
-                Open Live Ops Console
-              </button>
-
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);

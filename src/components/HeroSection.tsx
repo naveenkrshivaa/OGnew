@@ -1,17 +1,15 @@
 import React from 'react';
 import { ASSETS } from '../data/content';
-import { Shield, ArrowRight, Activity, CheckCircle, Clock } from 'lucide-react';
+import { Shield, ArrowRight, CheckCircle, Clock } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenConsultation: () => void;
   onSelectServiceTab: (index: number) => void;
-  onOpenConsole: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   onOpenConsultation,
-  onSelectServiceTab,
-  onOpenConsole
+  onSelectServiceTab
 }) => {
   const capabilityCards = [
     {
@@ -106,14 +104,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             >
               Explore Capabilities
             </a>
-
-            <button
-              onClick={onOpenConsole}
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#c5a059] hover:text-[#ffdea5] px-4 py-3 transition-colors cursor-pointer"
-            >
-              <Activity size={14} className="animate-pulse" />
-              <span>Watch Live Telemetry</span>
-            </button>
           </div>
         </div>
 
